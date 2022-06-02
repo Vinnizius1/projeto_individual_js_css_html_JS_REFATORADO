@@ -1,5 +1,5 @@
 ### Projeto individual do módulo *"HTML, CSS e JAVASCRIPT"*, porém o JS foi refatorado para *funções puras e clean code*!   
-*(Individual project)*
+*(Individual project with localStorage)*
 
 :man_technologist: Objective > To build a SPA (Single Page Application) following the layout from Figma:  
 :man_technologist: Objetivo > construir uma SPA (Single Page Application) seguindo o layout proposto no Figma:  
