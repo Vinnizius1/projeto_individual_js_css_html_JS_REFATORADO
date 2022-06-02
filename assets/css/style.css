@@ -1,0 +1,496 @@
+@import "form-style.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-family: "Lato", sans-serif;
+}
+
+/* MOBILE */
+.mobile {
+  background-color: #fff;
+  height: 100vh;
+}
+
+/* */
+.nova-transacao,
+.separador {
+  display: none;
+}
+
+/*  */
+.novoTexto {
+  text-align: center;
+  margin-top: 40px;
+  color: #383838;
+  font-family: "Inter", sans-serif;
+}
+
+/* 
+Status Bar
+*/
+.status-bar {
+  background-color: #000;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-6 {
+  display: flex;
+  align-items: center;
+  margin-left: 6px;
+}
+.bolinhas {
+  width: 33.5px;
+  margin-right: 9px;
+}
+.sinal {
+  width: 12px;
+}
+
+.frame-8 {
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+}
+.bluetooth {
+  width: 23px;
+}
+.porcentagem {
+  font-size: 12px;
+  color: #ffffff;
+}
+.bateria {
+  width: 22.5px;
+  margin-left: 5px;
+}
+
+.horas {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+/* 
+HEADER 
+*/
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: #e0e0e0;
+  justify-content: space-between;
+}
+
+.titulo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.logo {
+  width: 30px;
+  margin-left: 22px;
+}
+
+.hamburguer {
+  width: 24px;
+  height: 24px;
+  margin-right: 22px;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  background-color: #333;
+}
+
+.cadastro-transacoes {
+  display: block;
+  padding-bottom: 18px;
+  font-size: 17px;
+  cursor: pointer;
+  color: #fff;
+}
+.limpar-dados {
+  display: block;
+  font-size: 17px;
+  cursor: pointer;
+  color: #fff;
+}
+.vector-x {
+  display: block;
+  align-self: start;
+  margin: 40px;
+  padding-bottom: 20px;
+  width: 17px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/*
+MENU Hamburguer pra tela de celular
+*/
+.menu-celular {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90%;
+  height: 100vh;
+}
+
+/* 
+MAIN 
+*/
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+}
+
+/* 
+Account 
+*/
+.account {
+  margin: 20px 20px 0px;
+}
+
+.form .input_botao {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.form .input_botao:hover {
+  opacity: 0.8;
+}
+.form .input_botao:active {
+  opacity: 0.6;
+}
+
+.extrato-transacao {
+  margin-top: 21px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: #000;
+}
+
+.frame {
+  margin-top: 19px;
+  display: none;
+}
+
+.extratos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+}
+.extrato-mercadoria {
+  padding-left: 30px;
+}
+.extrato-valor {
+  padding-right: 42px;
+}
+
+.hr-main1 {
+  margin-top: 5px;
+  border: 1px solid #979797;
+}
+
+.primeiro,
+.segundo,
+.terceiro {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 10px;
+  margin-top: 7px;
+  font-size: 14px;
+  color: #000;
+}
+
+.primeiro-sinal,
+.segundo-sinal,
+.terceiro-sinal {
+  margin-left: 10px;
+  /* margin-left: 1%; */
+}
+
+.primeiro-lorem,
+.segundo-lorem,
+.terceiro-lorem {
+  font-size: 14px;
+  /*
+  display: inline-block;
+  margin-left: 3%;
+  width: 60%;
+  */
+  margin-left: 10px;
+  width: 53%;
+}
+
+.primeiro-valor,
+.segundo-valor,
+.terceiro-valor {
+  /*
+  display: inline-block;
+  position: absolute;
+  right: 10px; */
+  font-size: 14px;
+  margin-inline: auto;
+  margin-right: 0;
+}
+
+.hr-main2,
+.hr-main3,
+.hr-main4 {
+  margin-top: 8px;
+  border: 1px solid #979797;
+}
+
+.hr-main5 {
+  margin-top: 3px;
+  border: 1px solid #979797;
+}
+
+.totais {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.total {
+  /* display: inline-block;*/
+  margin-top: 11px;
+  margin-left: 30px;
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+}
+.total-valor {
+  /*display: inline-block;*/
+  margin-top: 11px;
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 10px;
+  /* display: none; */
+}
+
+.lucro {
+  /* position: absolute;
+  right: 10px; */
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 1px;
+  color: #000;
+  font-size: 10px;
+  margin-bottom: revert;
+}
+
+/* 
+FOOTER 
+*/
+footer {
+  background-color: #333;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  height: 8px;
+}
+
+/* 
+MEDIA QUERIES 
+*/
+/* Tablet Portrait */
+@media screen and (min-width: 768px) {
+  .retangulo-tablet {
+    margin: 20px 20px 0px 20px;
+    border: 1px solid #979797;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+
+  .retangulo-tablet .form {
+    margin-top: 20px;
+  }
+
+  .retangulo-tablet .form .input_botao {
+    width: 37%;
+    margin-left: 63%;
+  }
+
+  .nova-transacao {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 21px;
+  }
+
+  .display-flex-tablet {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .input-transacao,
+  .input-valor {
+    flex-grow: 1;
+  }
+  .input-mercadoria {
+    flex-grow: 2;
+    margin: 0px 20px;
+  }
+
+  #hr {
+    display: none;
+  }
+
+  .account {
+    margin-top: 23px;
+  }
+
+  .menu-tablet {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+/* Tablet Landscape */
+@media screen and (min-width: 1112px) {
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    height: 80px;
+    align-items: center;
+  }
+  .logo {
+    margin: 22px;
+    width: 40px;
+  }
+
+  .hamburguer,
+  .vector-x {
+    display: none;
+  }
+
+  .header .navigation-box .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding: 0 20px;
+    position: fixed;
+    right: 20px;
+    top: 41px;
+    background-color: #fff;
+  }
+
+  .limpar-dados:hover,
+  .cadastro-transacoes:hover {
+    opacity: 0.8;
+  }
+  .limpar-dados:active,
+  .cadastro-transacoes:active {
+    opacity: 0.6;
+  }
+
+  .cadastro-transacoes {
+    color: #333;
+    padding-bottom: 0px;
+    font-weight: 600;
+    transition: opacity 0.15s;
+  }
+
+  .limpar-dados {
+    color: #333;
+    font-weight: 600;
+    transition: opacity 0.15s;
+  }
+
+  .separador {
+    display: inline-block;
+    margin: 10px 17px;
+    color: #979797;
+  }
+
+  .main {
+    flex-direction: row;
+    margin: auto;
+  }
+
+  .retangulo-tablet {
+    margin: 26px 20px 0 20px;
+    width: 39%;
+  }
+
+  .retangulo-tablet .form {
+    margin: 20px 15px;
+  }
+
+  .retangulo-tablet .form .input_botao {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .display-flex-tablet {
+    flex-direction: column;
+  }
+
+  .input-mercadoria {
+    margin: 0;
+  }
+
+  .account {
+    width: 61%;
+    margin: 26px 20px 0px 0px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1500px) {
+  .status-bar {
+    display: none;
+  }
+
+  .header {
+    height: 80px;
+  }
+
+  .logo {
+    margin: 22px 20px 22px 200px;
+  }
+
+  /* Mais especificidade neste código para preservar o comportamento da tela */
+  .mobile .header .navigation-box .menu {
+    top: 20px;
+    right: 200px;
+  }
+
+  .retangulo-tablet {
+    width: 40%;
+    margin-top: 30px 20px 0 0;
+  }
+
+  .account {
+    width: 60%;
+    margin: 30px 0 0 0;
+  }
+}

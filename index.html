@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulos 1, 2 e 3 – HTML/CSS/JS</title>
+    <!-- CSS links -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/form-style.css" />
+    <!-- Ícone Newtab da guia  -->
+    <link rel="icon" href="./assets/img/logo-colorido@2x.png" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="mobile">
+      <!-- 1º Header -->
+      <header class="status-bar">
+        <div class="frame-6">
+          <img
+            src="./assets/img/bolinhas-menu_superior.png"
+            alt="bolinhas do sinal"
+            class="bolinhas"
+          />
+          <img
+            src="./assets/img/sinal-menu_superior.png"
+            alt="sinal"
+            class="sinal"
+          />
+        </div>
+
+        <p class="horas">9:42 AM</p>
+
+        <div class="frame-8">
+          <img
+            src="./assets/img/bluetooth-menu_superior.png"
+            alt="bluetooth"
+            class="bluetooth"
+          />
+          <p class="porcentagem">42%</p>
+          <img
+            src="./assets/img/bateria-menu_superior.png"
+            alt="bateria"
+            class="bateria"
+          />
+        </div>
+      </header>
+
+      <!-- 2º Header -->
+      <header class="header">
+        <img
+          src="./assets/img/logo-menu_inferior(versao2).png"
+          alt="logo"
+          class="logo"
+        />
+
+        <p class="titulo">Controle Financeiro</p>
+
+        <div class="navigation-box" id="semHover">
+          <img
+            src="./assets/img/hamburguer-menu_inferior.png"
+            alt="menu hamburguer"
+            class="hamburguer"
+            onclick="abrirMenu()"
+          />
+          <!-- Navigation Menu-->
+          <div class="menu">
+            <img
+              src="./assets/img/vectorX-menu_navegacao.png"
+              alt="ícone X para fechar"
+              class="vector-x"
+              onclick="fecharMenu()"
+            />
+            <a href="#" class="cadastro-transacoes">Cadastro de transações</a>
+            <div class="separador">|</div>
+            <a href="#" class="limpar-dados" onclick="limpaLocalStorage()"
+              >Limpar dados</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="main">
+        <!-- Form -->
+        <div class="retangulo-tablet">
+          <form id="form" class="form" onsubmit="saveForm()" autocomplete="off">
+            <p class="nova-transacao">Nova transação</p>
+
+            <div class="display-flex-tablet">
+              <div class="input-transacao">
+                <label class="tipo-transacao" for="tipo-select"
+                  >Compra e Venda</label
+                >
+                <select name="tipoSelect" id="tipo-select" autofocus required>
+                  <option label="Selecione a opção" value=""></option>
+                  <option id="compra" value="0">Compra</option>
+                  <option id="venda" value="1">Venda</option>
+                </select>
+              </div>
+
+              <div class="input-mercadoria">
+                <label class="tipo-mercadoria" for="tipo_mercadoria"
+                  >Nome da mercadoria</label
+                >
+                <input
+                  name="nome"
+                  type="text"
+                  id="tipo_mercadoria"
+                  placeholder="Digite o nome"
+                  required
+                />
+              </div>
+
+              <div class="input-valor">
+                <label class="tipo-valor" for="tipo_valor">Valor</label>
+                <input
+                  onkeyup="testaCampoValor()"
+                  name="valor"
+                  type="text"
+                  id="tipo_valor"
+                  placeholder="R$ 0,00"
+                  required
+                />
+              </div>
+            </div>
+
+            <button class="input_botao" type="submit">
+              Adicionar transação
+            </button>
+            <hr id="hr" />
+          </form>
+        </div>
+
+        <!-- Account -->
+        <div class="account">
+          <p class="extrato-transacao">Extrato de transações</p>
+          <div class="frame">
+
+            <div class="extratos">
+              <p class="extrato-mercadoria">Mercadoria</p>
+              <p class="extrato-valor">Valor</p>
+            </div>
+
+            <hr class="hr-main4" />
+            <div class="excluiLinhas">
+                <hr class="hr-main5" />
+                <div class="totais">
+                    <p class="total">Total</p>
+                    <p class="total-valor"></p>
+                </div>
+                <p id="lucro" class="lucro"></p>
+              </div> 
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <!-- footer sem nenhuma informação -->
+      <footer></footer>
+    </div>
+    <!-- <script src="./assets/js/index.js"></script> -->
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
