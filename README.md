@@ -1,4 +1,4 @@
-### Projeto individual do módulo *"HTML e CSS"*   
+### Projeto individual do módulo *"HTML, CSS e JAVASCRIPT"*, porém o JS foi refatorado para *funções puras e clean code*!   
 :man_technologist: Objetivo > construir uma SPA (Single Page Application) seguindo o layout proposto no Figma:  
 
 https://www.figma.com/file/U8ojEXx2vxSK2KOvoBvHVH8y/Frontend-test?node-id=13%3A42    
