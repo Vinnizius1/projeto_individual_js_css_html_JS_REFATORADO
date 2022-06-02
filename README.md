@@ -9,7 +9,7 @@ https://www.figma.com/file/U8ojEXx2vxSK2KOvoBvHVH8y/Frontend-test?node-id=13%3A4
   
 🔽 *Link do projeto:*  
 
-https://desafio-individual-newtab.netlify.app/  
+https://crud-localstorage-with-values.netlify.app/
     
 ![](assets/img-Readme.md/mobile_navigation.png)  
 
