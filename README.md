@@ -7,12 +7,12 @@
 https://www.figma.com/file/U8ojEXx2vxSK2KOvoBvHVH8y/Frontend-test?node-id=13%3A42    
   
   
-🔽 *Link do projeto funcionando:*  
+⬇️ *Link do projeto funcionando:*  
 
 https://crud-localstorage-with-values.netlify.app/  
 
 
-🔽 *Link do projeto antigo/anterior:*  
+😰 *Link do projeto antigo/anterior:*  
 
 https://github.com/Vinnizius1/projeto_individual_js_css_html
     
