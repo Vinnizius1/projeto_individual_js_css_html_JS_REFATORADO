@@ -83,7 +83,9 @@ const createRow = (merchandise) => {
   // valorComReplace é uma string q depois será tipo número
   // valorTotalFinal é um array vazio que receberá os valores já no tipo número para possibilitar a soma no método reduce
   valorComReplace = sinalMaisOuMenos + merchandise.valor;
-  valorComReplace = Number(valorComReplace.replaceAll(",", "."));
+  valorComReplace = Number(valorComReplace
+    .replaceAll(".", "")
+    .replaceAll(",", "."));
   valorTotalFinal.push(valorComReplace);
   let reducedValue = valorTotalFinal.reduce((total, atual) => total + atual);
 
@@ -186,10 +188,24 @@ function fecharMenu() {
 function testaCampoValor() {
   let elemento = document.getElementById("tipo_valor");
   let valor = elemento.value;
-  valor = parseInt(valor.replace(/[\D]+/g, ""));
-  valor = valor + "";
+  // valor = parseInt(valor.replace(/[\D]+/g, ""));
+  // valor = valor + "";
+  // valor = valor.replace(/([0-9]{2})$/g, ",$1");
+  // elemento.value = valor;
+  // if (valor == "NaN") elemento.value = "";
+
+  // Nova máscara!
+  valor = valor.toString();
+  valor = valor.replace(/[\D]+/g, "");
   valor = valor.replace(/([0-9]{2})$/g, ",$1");
 
+  if (valor.length >= 6) {
+    while (/([0-9]{4})[,|\.]/g.test(valor)) {
+      valor = valor.replace(/([0-9]{2})$/g, ",$1");
+      valor = valor.replace(/([0-9]{3})[,|\.]/g, ".$1");
+    }
+  }
   elemento.value = valor;
-  if (valor == "NaN") elemento.value = "";
+  console.log(elemento.value);
+  // e.target.value = valor;
 }
