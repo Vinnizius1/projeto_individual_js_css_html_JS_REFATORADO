@@ -200,12 +200,13 @@ function testaCampoValor() {
   valor = valor.replace(/([0-9]{2})$/g, ",$1");
 
   if (valor.length >= 6) {
-    while (/([0-9]{4})[,|\.]/g.test(valor)) {
+    // while (/([0-9]{4})[,|\.]/g.test(valor)) {    -> REMOÇÃO DO '\'
+    while (/([0-9]{4})[,|.]/g.test(valor)) {
       valor = valor.replace(/([0-9]{2})$/g, ",$1");
-      valor = valor.replace(/([0-9]{3})[,|\.]/g, ".$1");
+    // valor = valor.replace(/([0-9]{3})[,|\.]/g, ".$1");   -> REMOÇÃO DO '\'
+      valor = valor.replace(/([0-9]{3})[,|.]/g, ".$1");
     }
   }
   elemento.value = valor;
-  console.log(elemento.value);
   // e.target.value = valor;
 }
