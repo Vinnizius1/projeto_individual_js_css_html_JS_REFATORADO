@@ -66,7 +66,7 @@ const saveForm = () => {
 };
 
 /* 4: Criará linha a linha com os dados cadastrados, dados que estarão dentro de "merchandise" */
-const createRow = (merchandise) => {
+const createRow = (merchandise, index) => {
   // O forEach mandará a mercadoria
   // Esta "newDiv" será criada para receber a mercadoria e em seguida será inserida dentro da div "extratos"
   let newDiv = document.createElement("div");
@@ -100,13 +100,21 @@ const createRow = (merchandise) => {
     { minimumFractionDigits: 2, style: "currency", currency: "BRL" }
   );
 
+  let a = merchandise.valor
+  // console.log(typeof merchandise.valor);
+  // console.log(a.length)
+  a = a.length == 3 ? "0" + a : a
+
   // newDiv recebendo os dados dos 3 inputs que serão injetados na tela!
   newDiv.innerHTML += `
   <hr class="hr-main4" />
-  <div class="primeiro">
+  <div class="primeiro" style="position: relative;">
     <p class="primeiro-sinal">${sinalMaisOuMenos}</p>
-    <p class="primeiro-lorem">${merchandise.nome}</p>      
-    <p class="primeiro-valor">R$ ${merchandise.valor}</p>
+    <div class="oi">
+      <p class="primeiro-lorem">${merchandise.nome}</p>      
+      <button id="deletar ${index}" style="font-size: 10px; cursor: pointer;line-height: 11px; letter-spacing: 0.5px; margin-left: 10px;">Deletar</button>   
+    </div>   
+    <p class="primeiro-valor">R$ ${a}</p>
   </div> 
   `;
 
@@ -123,6 +131,27 @@ const createRow = (merchandise) => {
   linhaLucroOuDespesa.textContent = `${
     Math.sign(reducedValue) == -1 ? "[Despesa]" : "[Lucro]"
   }`;
+
+  /* Evento para o botão "deletar" */
+  const deleteClient = (index) => {
+    const dbMerchandise = readMerchandise();
+    console.log(dbMerchandise)
+
+    dbMerchandise.splice(index, 1)
+    setLocalStorage(dbMerchandise);
+    updateScreen();
+  }
+
+  const deletarLinha = (event) => {
+    // console.log(event.target.id)
+
+    const [indexParaDeletar] = event.target.id.split(" ")[1]
+    // console.log(indexParaDeletar)
+
+    deleteClient(indexParaDeletar)
+  }
+
+  document.querySelector(".oi > button").addEventListener("click", deletarLinha)
 };
 
 /* 5: Limpará a tela antes de adicionar nova mercadoria */
