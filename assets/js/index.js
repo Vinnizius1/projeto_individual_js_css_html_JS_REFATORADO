@@ -13,7 +13,7 @@ const accountFilho = account.lastElementChild; // receberá "frame" como "filho"
 
 /* Mensagem exibida quando não houver mercadoria no "localStorage" */
 let textoSemMercadoriaCadastrada = document.createElement("p");
-textoSemMercadoriaCadastrada.textContent = "Nehuma mercadoria cadastrada";
+textoSemMercadoriaCadastrada.textContent = "Nenhuma mercadoria cadastrada";
 textoSemMercadoriaCadastrada.className = "novoTexto";
 if (localStorage.length == 0) {
   account.appendChild(textoSemMercadoriaCadastrada);
@@ -145,7 +145,7 @@ const createRow = (merchandise, index) => {
       updateScreen();
       location.reload();
     }
-
+    localStorage.db_merchandise == "[]" ? localStorage.clear() : null;
     // console.log(localStorage.length);
   };
 
