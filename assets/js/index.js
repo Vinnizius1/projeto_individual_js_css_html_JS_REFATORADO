@@ -22,7 +22,7 @@ if (localStorage.length == 0) {
 /* Métodos localStorage criados como função */
 const getLocalStorage = () =>
   JSON.parse(localStorage.getItem("db_merchandise")) || [];
-const setLocalStorage = (dbMerchandise) =>
+const setLocalStorage = dbMerchandise =>
   localStorage.setItem("db_merchandise", JSON.stringify(dbMerchandise));
 
 /* Função que "lê" os dados salvos no localStorage */
@@ -36,7 +36,7 @@ const clearFields = () => {
 };
 
 /* 2: Função que criará cada mercadoria */
-const createMerchandise = (merchandise) => {
+const createMerchandise = merchandise => {
   const dbMerchandise = getLocalStorage();
   dbMerchandise.push(merchandise);
   setLocalStorage(dbMerchandise);
@@ -83,9 +83,9 @@ const createRow = (merchandise, index) => {
   // valorComReplace é uma string q depois será tipo número
   // valorTotalFinal é um array vazio que receberá os valores já no tipo número para possibilitar a soma no método reduce
   valorComReplace = sinalMaisOuMenos + merchandise.valor;
-  valorComReplace = Number(valorComReplace
-    .replaceAll(".", "")
-    .replaceAll(",", "."));
+  valorComReplace = Number(
+    valorComReplace.replaceAll(".", "").replaceAll(",", ".")
+  );
   valorTotalFinal.push(valorComReplace);
   let reducedValue = valorTotalFinal.reduce((total, atual) => total + atual);
 
@@ -100,10 +100,10 @@ const createRow = (merchandise, index) => {
     { minimumFractionDigits: 2, style: "currency", currency: "BRL" }
   );
 
-  let a = merchandise.valor
+  let a = merchandise.valor;
   // console.log(typeof merchandise.valor);
   // console.log(a.length)
-  a = a.length == 3 ? "0" + a : a
+  a = a.length == 3 ? "0" + a : a;
 
   // newDiv recebendo os dados dos 3 inputs que serão injetados na tela!
   newDiv.innerHTML += `
@@ -112,7 +112,7 @@ const createRow = (merchandise, index) => {
     <p class="primeiro-sinal">${sinalMaisOuMenos}</p>
     <div class="oi">
       <p class="primeiro-lorem">${merchandise.nome}</p>      
-      <button id="deletar ${index}" style="font-size: 10px; cursor: pointer;line-height: 11px; letter-spacing: 0.5px; margin-left: 10px;">Deletar</button>   
+      <button id="deletar"><i id="${index}" class="fa-solid fa-delete-left"></i></button>   
     </div>   
     <p class="primeiro-valor">R$ ${a}</p>
   </div> 
@@ -133,31 +133,38 @@ const createRow = (merchandise, index) => {
   }`;
 
   /* Evento para o botão "deletar" */
-  const deleteClient = (index) => {
+  const deleteClient = index => {
     const dbMerchandise = readMerchandise();
-    console.log(dbMerchandise)
+    // console.log(dbMerchandise)
+    const response = confirm(
+      `Deseja mesmo excluir a mercadoria: "${merchandise.nome}"?`
+    );
+    if (response) {
+      dbMerchandise.splice(index, 1);
+      setLocalStorage(dbMerchandise);
+      updateScreen();
+      location.reload();
+    }
 
-    dbMerchandise.splice(index, 1)
-    setLocalStorage(dbMerchandise);
-    updateScreen();
-  }
+    // console.log(localStorage.length);
+  };
 
-  const deletarLinha = (event) => {
-    // console.log(event.target.id)
+  const deletarLinha = event => {
+    // console.log(event);
+    const [indexParaDeletar] = event.target.id;
+    // console.log(indexParaDeletar);
+    deleteClient(indexParaDeletar);
+  };
 
-    const [indexParaDeletar] = event.target.id.split(" ")[1]
-    // console.log(indexParaDeletar)
-
-    deleteClient(indexParaDeletar)
-  }
-
-  document.querySelector(".oi > button").addEventListener("click", deletarLinha)
+  document
+    .querySelector(".oi > button")
+    .addEventListener("click", deletarLinha);
 };
 
 /* 5: Limpará a tela antes de adicionar nova mercadoria */
 const clearScreen = () => {
   const rows = document.querySelectorAll(".apagaInicio");
-  rows.forEach((row) => row.remove());
+  rows.forEach(row => row.remove());
 };
 
 /* 3: TODA VEZ que a TELA LIGAR/CARREGAR os dados deverão aparecer lá */
@@ -232,7 +239,7 @@ function testaCampoValor() {
     // while (/([0-9]{4})[,|\.]/g.test(valor)) {    -> REMOÇÃO DO '\'
     while (/([0-9]{4})[,|.]/g.test(valor)) {
       valor = valor.replace(/([0-9]{2})$/g, ",$1");
-    // valor = valor.replace(/([0-9]{3})[,|\.]/g, ".$1");   -> REMOÇÃO DO '\'
+      // valor = valor.replace(/([0-9]{3})[,|\.]/g, ".$1");   -> REMOÇÃO DO '\'
       valor = valor.replace(/([0-9]{3})[,|.]/g, ".$1");
     }
   }
